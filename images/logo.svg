@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" style="position:absolute; top:0; right:0; bottom:0; left:0; margin:auto;" viewBox="0 0 600 600">
+	<style>
+		#logo	{
+			fill: #4169e1;
+		}
+
+		#logo-clip	{
+			fill: #36454f;
+		}
+
+		.text-no	{
+			font-family: 'Unispace';
+			font-size: 180px;
+			fill: #4169e1;
+			font-weight: bold;
+			stroke-width: 4px;
+		}
+
+		.text-clip	{
+			font-family: 'Unispace';
+			font-size: 180px;
+			font-weight: bold;
+		}
+	</style>
+
+	<defs>
+		<clipPath id="text">
+			<text x="300" y="280" text-anchor="middle" class="text-clip">ZER0</text>
+			<text x="300" y="470" text-anchor="middle" class="text-clip">PLUS</text>
+		</clipPath>
+	</defs>
+
+	<g>
+		<path id="logo" d="M220,220 L220,80 Q220,50 250,50 L350,50 Q380,50 380,80 L380,80 L380,220 L520,220 Q550,220 550,250 L550,350 Q550,380 520,380	L520,380 L380,380 L380,520 Q380,550 350,550 L250,550 Q220,550 220,520 L220,520 L220,380 L80,380 Q50,380 50,350 L50,250 Q50,220 80,220 L80,220 Z" />
+		
+		<text x="300" y="280" text-anchor="middle" class="text-no">ZER0</text>
+		<text x="300" y="470" text-anchor="middle" class="text-no">PLUS</text>
+		
+		<path clip-path="url(#text)" id="logo-clip" d="M220,220 L220,80 Q220,50 250,50 L350,50 Q380,50 380,80 L380,80 L380,220 L520,220 Q550,220 550,250 L550,350 Q550,380 520,380	L520,380 L380,380 L380,520 Q380,550 350,550 L250,550 Q220,550 220,520 L220,520 L220,380 L80,380 Q50,380 50,350 L50,250 Q50,220 80,220 L80,220 Z" />
+	</g>
+</svg>
