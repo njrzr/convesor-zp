@@ -1,34 +1,34 @@
 /*Basic format and font import*/
 * {
-	margin: 0px;
-	padding: 0px;
-	box-sizing: border-box;
-	user-select: none;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  user-select: none;
 }
 
 /*Website style*/
 /*#region*/
 #main-container[v-cloak] {
-	display: none;
+  display: none;
 }
 
 #main-container {
-	position: relative;
-	display: grid;
-	grid-template-columns: repeat(1, minmax(0, 1fr));
-	font-family: 'Oxanium';
-	font-size: 36px;
-	color: #ffffff;
-	width: 100%;
-	height: auto;
-	margin: 5px auto;
-	padding: 0 10px;
-	overflow: hidden;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  font-family: 'Oxanium';
+  font-size: 36px;
+  color: #ffffff;
+  width: 100%;
+  height: auto;
+  margin: 5px auto;
+  padding: 0 10px;
+  overflow: hidden;
 }
 
 .grid {
-	position: relative;
-	background: #4169e1;
+  position: relative;
+  background: #4169e1;
   padding: 8px;
   border-radius: 10px;
 }
@@ -36,422 +36,451 @@
 /*Keyframes*/
 /*#region*/
 @keyframes blink {
-	0% {opacity: 0;}
-	50% {opacity: 1;}
-	100% {opacity: 0;}
+  0% {opacity: 0;}
+  50% {opacity: 1;}
+  100% {opacity: 0;}
 }
 
 #blnk1, #blnk2, #blnk3 {
-	animation: blink linear infinite 1s;
+  animation: blink linear infinite 1s;
 }
 
 #blnk1 {
-	animation-delay: 25ms;
+  animation-delay: 25ms;
 }
 
 #blnk2 {
-	animation-delay: 125ms;
+  animation-delay: 125ms;
 }
 
 #blnk3 {
-	animation-delay: 225ms;
+  animation-delay: 225ms;
 }
 /*#endregion*/
 
 #grid-load {
-	background: #4169e1;
-	font-family: 'Oxanium';
+  background: #4169e1;
+  font-family: 'Oxanium';
   font-weight: bold;
-	width: 100%;
+  width: 100%;
   margin: 5px 0 0 0;
-	padding: 10px 0;
+  padding: 10px 0;
   border-radius: 10px;
 }
 
 #grid-load > p{
-	font-size: 1em;
-	font-weight: bold;
-	color: #ffffff;
-	text-align: center;
+  font-size: 1em;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
 }
 
 #grid-warn {
-	background: #ff0000;
-	font-family: 'Oxanium';
+  background: #ff0000;
+  font-family: 'Oxanium';
   font-weight: bold;
-	width: 100%;
+  width: 100%;
   margin: 5px 0 0 0;
-	padding: 20px 0;
+  padding: 20px 0;
   border-radius: 10px;
 }
 
 #grid-warn > p {
-	font-size: .5em;
-	font-weight: bold;
-	color: #ffffff;
-	text-align: justify;
-	padding: 0 20px;
+  font-size: .5em;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: justify;
+  padding: 0 20px;
 }
 
 #container-data {
-	position: relative;
+  position: relative;
   margin: 5px 0 0 0;
-	display: grid;
-	grid-template-columns: repeat(2, minmax(0, 1fr));
-	grid-template-areas: "title title"
-											 "coin-price-1 coin-price-2"
-											 "coin-price-3 coin-price-4"
-											 "coin-price-5 coin-price-6"
-											 "coin-price-7 coin-price-8"
-											 "coin-select coin-select"
-											 "coin-selected coin-selected";
-	gap: 5px;
-	overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-areas: "title title"
+                       "coin-price-1 coin-price-2"
+                       "coin-price-5 coin-price-6"
+                       "coin-price-9 coin-price-3"
+                       "coin-price-7 coin-price-10"
+                       "coin-price-4 coin-price-8"
+                       "coin-select coin-select"
+                       "coin-selected coin-selected";
+  gap: 5px;
+  overflow: hidden;
 }
 
 #title {
-	font-family: 'Oxanium';
+  font-family: 'Oxanium';
   font-weight: bold;
-	text-align: center;
-	font-size: .75em;
-	padding: 10px 0;
+  text-align: center;
+  font-size: .75em;
+  padding: 10px 0;
 }
 
 .coin-name {
-	font-size: .3em;
+  font-size: .3em;
 }
 
 .notes {
-	position: absolute;
-	visibility: hidden;
-	width: 100%;
-	z-index: 1;
-	top: 0;
-	left: 0;
-	background: #ffffff;
-	border: solid 2px #4169e1;
-	border-radius: 10px;
-	padding: 10px;
-	font-size: .35em;
-	text-align: justify;
-	word-wrap: break-word;
-	color: #4169e1;
-	opacity: 0;
-	transition: 500ms ease-in-out;
+  position: absolute;
+  visibility: hidden;
+  width: 100%;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background: #ffffff;
+  border: solid 2px #4169e1;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: .35em;
+  text-align: justify;
+  word-wrap: break-word;
+  color: #4169e1;
+  opacity: 0;
+  transition: 500ms ease-in-out;
 }
 
 .show-notes {
-	top: -10px;
-	visibility: visible;
-	opacity: 1;
-	transition: 500ms ease-in-out;
+  top: -10px;
+  visibility: visible;
+  opacity: 1;
+  transition: 500ms ease-in-out;
 }
 
 .api:link {
-	color: #4169e1;
-	font-weight: bold;
+  color: #4169e1;
+  font-weight: bold;
 }
 
 .api:visited {
-	color: #4169e1;
+  color: #4169e1;
 }
 
 .api:hover {
-	background: #4169e1;
-	color: #ffffff;
+  background: #4169e1;
+  color: #ffffff;
 }
 
 .coin-value {
-	font-size: .3em;
-	text-align: right;
-	font-weight: bold;
+  font-size: .3em;
+  text-align: right;
+  font-weight: bold;
 }
 
 .grid-select {
-	position: relative;
-	display: grid;
-	grid-template-columns: repeat(2, minmax(0, 1fr));
-	grid-template-areas: "coin-calc coin-calc" 
-											 "coin-value-1 coin-value-2" 
-											 "coin-value-3 coin-value-4";
-	gap: 5px;
-	grid-area: coin-selected;
-	overflow: hidden;
-	margin: 5px 0 0 0;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-areas: "coin-calc coin-calc"
+                       "coin-value-1 coin-value-2"
+                       "coin-value-3 coin-value-4"
+                       "coin-value-5 coin-value-6"
+                       "coin-value-7 coin-value-8";
+  gap: 5px;
+  grid-area: coin-selected;
+  overflow: hidden;
+  margin: 5px 0 0 0;
 }
 
 .input {
-	font-family: 'Oxanium';
-	text-align: center;
-	font-size: .5em;
-	font-weight: bold;
+  font-family: 'Oxanium';
+  text-align: center;
+  font-size: .5em;
+  font-weight: bold;
 }
 
 #coin {
-	font-family: 'Oxanium';
-	font-size: .3em;
-	background: #ffffff url("../images/arrowss.png") no-repeat;
-	background-size: 5%;
-	background-position: 96% 50%;
-	width: 30%;
-	padding: 6px;
-	-webkit-appearance: none;
-	border: none;
+  font-family: 'Oxanium';
+  font-size: .3em;
+  background: #ffffff url("../images/arrowss.png") no-repeat;
+  background-size: 5%;
+  background-position: 96% 50%;
+  width: 30%;
+  padding: 6px;
+  -webkit-appearance: none;
+  border: none;
 }
 
 #value {
-	font-family: 'Oxanium';
-	font-size: .3em;
-	background: #ffffff;
-	width: 60%;
-	padding: 6px;
-	-webkit-appearance: none;
-	text-align: center;
-	border: none;
+  font-family: 'Oxanium';
+  font-size: .3em;
+  background: #ffffff;
+  width: 60%;
+  padding: 6px;
+  -webkit-appearance: none;
+  text-align: center;
+  border: none;
 }
 
 #creator-link {
-	position: relative;
-	width: 40px;
-	height: 40px;
-	overflow: hidden;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
 }
 
 #logos {
-	width: 40px;
-	filter: drop-shadow(0 0 2px #ffffff);
-	transition: linear 250ms;
+  width: 40px;
+  filter: drop-shadow(0 0 2px #ffffff);
+  transition: linear 250ms;
 }
 
 #logos:hover {
-	background: #ffffff44;
-	filter: drop-shadow(0 0 0 #ffffff);
-	transition: linear 250ms;
+  background: #ffffff44;
+  filter: drop-shadow(0 0 0 #ffffff);
+  transition: linear 250ms;
 }
 
 .foot {
-	font-size: .3em;
-	text-align: center;
-	padding: 5px;
-	margin: 0 5px;
+  font-size: .3em;
+  text-align: center;
+  padding: 5px;
+  margin: 0 5px;
 }
 
 #footer {
-	position: relative;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background: #4169e1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #4169e1;
   border-radius: 10px;
-	padding: 10px 0;
-	margin: 5px 0 5px 0;
+  padding: 10px 0;
+  margin: 5px 0 5px 0;
 }
 /*#endregion*/
 
 /*404*/
 /*#region*/
 #body-error {
-	background: #ff0000;
+  background: #ff0000;
 }
 
 #error-container {
-	position: relative;
-	width: auto;
-	margin: 40px 80px;
-	padding: 30px 20px;
-	border: solid 4px #ffffff;
-	border-radius: 20px;
+  position: relative;
+  width: auto;
+  margin: 40px 80px;
+  padding: 30px 20px;
+  border: solid 4px #ffffff;
+  border-radius: 20px;
   box-shadow: 5px 5px 5px #000000
 }
 
 #error {
-	position: relative;
-	text-align: center;
-	font-size: 160px;
-	font-family: 'Oxanium';
-	font-weight: bold;
-	text-shadow: 5px 5px 1px #000000;
-	color: #ffffff;
-	transform: translate(0, -30px);
+  position: relative;
+  text-align: center;
+  font-size: 160px;
+  font-family: 'Oxanium';
+  font-weight: bold;
+  text-shadow: 5px 5px 1px #000000;
+  color: #ffffff;
+  transform: translate(0, -30px);
 }
 
 #error-text {
-	position: relative;
-	font-family: 'Oxanium';
-	font-size: 24px;
-	text-shadow: 2px 2px 1px #000000;
-	color: #ffffff;
-	text-align: justify;
-	padding: 10px 30px;
+  position: relative;
+  font-family: 'Oxanium';
+  font-size: 24px;
+  text-shadow: 2px 2px 1px #000000;
+  color: #ffffff;
+  text-align: justify;
+  padding: 10px 30px;
 }
 /*#endregion*/
 
 /*Display: grid, position style*/
 /*#region*/
 @media screen and (min-width: 500px) {
-	#main-container {
-		width: 90%;
-		grid-template-columns: repeat(1, minmax(0, 1fr));
+  #main-container {
+    width: 90%;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
 
-	}
+  #container-data {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-areas: "title title title"
+                         "coin-price-1 coin-price-6 coin-price-3"
+                         "coin-price-2 coin-price-9 coin-price-7"
+                         "coin-price-5 coin-price-8 coin-price-10"
+                         ". coin-price-4 ."
+                         "coin-select coin-select coin-select"
+                         "coin-selected coin-selected coin-selected";
+  }
 
-	#container-data {
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		grid-template-areas: "title title title"
-												 "coin-price-1 coin-price-2 coin-price-3"
-												 "coin-price-4 coin-price-5 coin-price-6"
-												 "coin-price-7 coin-price-8 ."
-												 "coin-select coin-select coin-select"
-												 "coin-selected coin-selected coin-selected";
-	}
+  .grid-select {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-areas: "coin-calc coin-calc coin-calc"
+                         "coin-value-1 coin-value-2 coin-value-3"
+                         "coin-value-4 coin-value-5 coin-value-6"
+                         "coin-value-7 coin-value-8 .";
+  }
 
-	.grid-select {
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		grid-template-areas: "coin-calc coin-calc coin-calc"
-												 "coin-value-1 coin-value-2 coin-value-3"
-												 "coin-value-4 . .";
-	}
-
-	.super {
-		display: none;
-	}
+  .super {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 1144px) {
-	#main-container {
-		width: 80%;
-		grid-template-columns: repeat(1, minmax(0, 1fr));
+  #main-container {
+    width: 80%;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
 
-	}
+  #container-data {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-areas: "title title title title"
+                         "coin-price-1 coin-price-2 coin-price-3 coin-price-4"
+                         "coin-price-5 coin-price-6 coin-price-7 coin-price-8"
+                         ". coin-price-9 coin-price-10 ."
+                         "coin-select coin-select coin-select coin-select"
+                         "coin-selected coin-selected coin-selected coin-selected";
+  }
 
-	#container-data {
-		grid-template-columns: repeat(4, minmax(0, 1fr));
-		grid-template-areas: "title title title title"
-												 "coin-price-1 coin-price-2 coin-price-3 coin-price-4"
-												 "coin-price-5 coin-price-6 coin-price-7 coin-price-8"
-												 "coin-select coin-select coin-select coin-select"
-												 "coin-selected coin-selected coin-selected coin-selected";
-	}
+  .grid-select {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-areas: "coin-calc coin-calc coin-calc coin-calc"
+                         "coin-value-1 coin-value-2 coin-value-3 coin-value-4"
+                         "coin-value-5 coin-value-6 coin-value-7 coin-value-8";
+  }
 
-	.grid-select {
-		grid-template-columns: repeat(4, minmax(0, 1fr));
-		grid-template-areas: "coin-calc coin-calc coin-calc coin-calc"
-												 "coin-value-1 coin-value-2 coin-value-3 coin-value-4";
-	}
+  .super {
+    display: inline-block;
+    background: url("../images/qmark.png") center no-repeat;
+    background-size: 100%;
+    border: solid 1px #ffffff;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
 
-	.super {
-		display: inline-block;
-		background: url("../images/qmark.png") center no-repeat;
-		background-size: 100%;
-		border: solid 1px #ffffff;
-		width: 15px;
-		height: 15px;
-		border-radius: 50%;
-		overflow: hidden;
-	}
+  #creator-link {
+    width: 80px;
+    height: 80px;
+  }
 
-	#creator-link {
-		width: 80px;
-		height: 80px;
-	}
+  #logos {
+    width: 80px;
+  }
 
-	#logos {
-		width: 80px;
-	}
+  #grid-load > p{
+    font-size: 1.5em;
+  }
 
-	#grid-load > p{
-		font-size: 1.5em;
-	}
+  #grid-warn > p, .input {
+    font-size: 1em;
+  }
 
-	#grid-warn > p, .input {
-		font-size: 1em;
-	}
+  #title {
+    font-size: 1.25em;
+  }
 
-	#title {
-		font-size: 1.25em;
-	}
+  .coin-value {
+    font-size: .5em;
+    font-weight: bold;
+  }
 
-	.coin-value {
-		font-size: .5em;
-		font-weight: bold;
-	}
+  .notes {
+    font-size: .55em;
+  }
 
-	.notes {
-		font-size: .55em;
-	}
+  #coin, #value {
+    font-size: .75em;
+  }
 
-	#coin, #value {
-		font-size: .75em;
-	}
-
-	.coin-name, .foot, #version{
-		font-size: .5em;
-	}
+  .coin-name, .foot, #version{
+    font-size: .5em;
+  }
 }
 
 /*Grid area names*/
-.div-1 {
-	grid-area: title;
+.coin-1 {
+  grid-area: title;
 }
 
-.div-2 {
-	grid-area: coin-price-1;
+.coin-2 {
+  grid-area: coin-price-1;
 }
 
-.div-3 {
-	grid-area: coin-price-2;
+.coin-3 {
+  grid-area: coin-price-2;
 }
 
-.div-4 {
-	grid-area: coin-price-3;
+.coin-4 {
+  grid-area: coin-price-3;
 }
 
-.div-5 {
-	grid-area: coin-price-4;
+.coin-5 {
+  grid-area: coin-price-4;
 }
 
-.div-6 {
-	grid-area: coin-price-5;
+.coin-6 {
+  grid-area: coin-price-5;
 }
 
-.div-7 {
-	grid-area: coin-price-6;
+.coin-7 {
+  grid-area: coin-price-6;
 }
 
-.div-8 {
-	grid-area: coin-price-7;
+.coin-8 {
+  grid-area: coin-price-7;
 }
 
-.div-9 {
-	grid-area: coin-price-8;
+.coin-9 {
+  grid-area: coin-price-8;
 }
 
-.div-10 {
-	display: flex;
-	justify-content: space-around;
-	grid-area: coin-select;
-	padding: 10px;
-	margin: 0 0 -5px 0;
+.coin-10 {
+  grid-area: coin-price-9;
 }
 
-.div-11, .div-16, .div-21, .div-26 {
-	grid-area: coin-calc;
-	padding: 15px 0;
+.coin-11 {
+  grid-area: coin-price-10;
 }
 
-.div-12, .div-17, .div-22, .div-27 {
-	grid-area: coin-value-1;
+.select {
+  display: flex;
+  justify-content: space-around;
+  grid-area: coin-select;
+  padding: 10px;
+  margin: 0 0 -5px 0;
 }
 
-.div-13, .div-18, .div-23, .div-28 {
-	grid-area: coin-value-2;
+.coin-select-1 {
+  grid-area: coin-calc;
+  padding: 15px 0;
 }
 
-.div-14, .div-19, .div-24, .div-29 {
-	grid-area: coin-value-3;
+.coin-select-2 {
+  grid-area: coin-value-1;
 }
 
-.div-15, .div-20, .div-25, .div-30 {
-	grid-area: coin-value-4;
+.coin-select-3 {
+  grid-area: coin-value-2;
+}
+
+.coin-select-4 {
+  grid-area: coin-value-3;
+}
+
+.coin-select-5 {
+  grid-area: coin-value-4;
+}
+
+.coin-select-6 {
+  grid-area: coin-value-5;
+}
+
+.coin-select-7 {
+  grid-area: coin-value-6;
+}
+
+.coin-select-8 {
+  grid-area: coin-value-7;
+}
+
+.coin-select-9 {
+  grid-area: coin-value-8;
 }
 /*#endregion*/
