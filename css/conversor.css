@@ -134,11 +134,10 @@
   border-radius: 10px;
   padding: 10px;
   text-align: center;
-  word-wrap: break-word;
   color: #4169e1;
   opacity: 0;
-  transform-origin: center;
-  transition: 500ms ease-in-out;
+  transition: 500ms linear;
+  overflow: hidden;
 }
 
 .notes > p {
@@ -149,7 +148,8 @@
   visibility: visible;
   height: 100%;
   opacity: 1;
-  transition: 500ms ease-in-out;
+  transition: 500ms linear;
+  overflow: hidden;
 }
 
 .api:link {
@@ -227,13 +227,13 @@
 #logos {
   width: 40px;
   filter: drop-shadow(0 0 2px #ffffff);
-  transition: linear 250ms;
+  transition: 250ms linear;
 }
 
 #logos:hover {
   background: #ffffff44;
   filter: drop-shadow(0 0 0 #ffffff);
-  transition: linear 250ms;
+  transition: 250ms linear;
 }
 
 .foot {
