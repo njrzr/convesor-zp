@@ -32,26 +32,26 @@
 
       <div id="container-data" v-else>
         <div class="grid coin-1">
-          <p id="title">Conversor de divisas y criptomonedas.</p>
+          <p id="title">Conversor de divisas y criptomonedas.<span :class="['super', { 'hide':isActive }]" @click="showNotes"></span></p>
+          <div :class="['notes', { 'show-notes': isActive }]">
+            <p>El valor de las divisas es obtenido a través de <a class="api" target="_blank" href="https://dolartoday.com/" rel="noreferrer">dolartoday.com</a> y <a class="api" target="_blank" href="https://openexchangerates.org/" rel="noreferrer">openexchangerates.org</a>.</p>
+            <p>El valor de las criptomonedas es obtenido a través de <a class="api" target="_blank" href="https://cryptocompare.com/" rel="noreferrer">cryptocompare.com</a>.</p>
+          </div>
         </div>
         <div class="grid coin-2">
-          <p class="coin-name">Bolívares por Dólar <span class="super" @click="showNotes(0)"></span></p>
-          <p class="notes">El valor del Dólar en Bolívares es obtenido a través de <a class="api" target="_blank" href="https://dolartoday.com/" rel="noreferrer">dolartoday.com</a>, este valor se actualiza cada 10 minutos.</p>
+          <p class="coin-name">Bolívares por Dólar</p>
           <p class="coin-value">{{ coinFormat(coins.vesToUsd) }}</p>
         </div>
         <div class="grid coin-3">
-          <p class="coin-name">Bolívares por Euro <span class="super" @click="showNotes(1)"></span></p>
-          <p class="notes">El valor del Euro en Bolívares es obtenido a través de <a class="api" target="_blank" href="https://dolartoday.com/" rel="noreferrer">dolartoday.com</a>, este valor se actualiza cada 10 minutos.</p>
+          <p class="coin-name">Bolívares por Euro</p>
           <p class="coin-value">{{ coinFormat(coins.vesToEur) }}</p>
         </div>
         <div class="grid coin-4">
-          <p class="coin-name">Dólares por Bitcoin <span class="super" @click="showNotes(2)"></span></p>
-          <p class="notes">El valor del Bitcoin en Dólares es obtenido a través de <a class="api" target="_blank" href="https://cryptocompare.com/" rel="noreferrer">cryptocompare.com</a>, este valor se actualiza cada 10 segundos.</p>
+          <p class="coin-name">Dólares por Bitcoin</p>
           <p class="coin-value">{{ coinFormat(coins.usdToBtc) }}</p>
         </div>
         <div class="grid coin-5">
-          <p class="coin-name">Pesos por Dólar <span class="super" @click="showNotes(3)"></span></p>
-          <p class="notes">El valor del Dólar en Pesos es obtenido a través de <a class="api" target="_blank" href="https://openexchangerates.org" rel="noreferrer">openexchangerates.org</a>, este valor se actualiza cada hora.</p>
+          <p class="coin-name">Pesos por Dólar</p>
           <p class="coin-value">{{ coinFormat(coins.copToUsd) }}</p>
         </div>
         <div class="grid coin-6">

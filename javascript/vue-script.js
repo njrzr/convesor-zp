@@ -19,6 +19,7 @@ new Vue ({
     eur_btc: null,
     eut_eth: null,
     eur_ltc: null,
+    isActive: false,
 		loading: true,
 		error: false
 	},
@@ -84,15 +85,11 @@ new Vue ({
 				return Intl.NumberFormat(lang, {style: 'currency', currency: currency, minimumFractionDigits: digits}).format(value);
 			}
 		},
-		showNotes(index) {
-			let from = document.getElementsByClassName('notes')[index]
-			let hide = document.getElementsByClassName('super')[index]
-			from.classList.toggle('show-notes')
-			hide.style.visibility = 'hidden'
+		showNotes() {
+      this.isActive = true
 			setTimeout(() => {
-				from.classList.toggle('show-notes');
-				hide.style.visibility = 'visible';
-			}, 4000);
+				this.isActive = false
+			}, 5000);
 		}
 	},
 	computed: {
