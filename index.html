@@ -32,7 +32,7 @@
 
       <div id="container-data" v-else>
         <div class="grid coin-1">
-          <p id="title">Conversor de divisas y criptomonedas.<span :class="['super', { 'hide':isActive }]" @click="showNotes"></span></p>
+          <p id="title">Conversor de divisas y criptomonedas.<span :class="['super', { 'hide': isActive }]" @click="showNotes"></span></p>
           <div :class="['notes', { 'show-notes': isActive }]">
             <p>El valor de las divisas es obtenido a través de <a class="api" target="_blank" href="https://dolartoday.com/" rel="noreferrer">dolartoday.com</a> y <a class="api" target="_blank" href="https://openexchangerates.org/" rel="noreferrer">openexchangerates.org</a>.</p>
             <p>El valor de las criptomonedas es obtenido a través de <a class="api" target="_blank" href="https://cryptocompare.com/" rel="noreferrer">cryptocompare.com</a>.</p>
@@ -139,7 +139,7 @@
       </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios@0.21.0/dist/axios.min.js"></script>
     <script src="javascript/vue-script.js"></script>
   </body>

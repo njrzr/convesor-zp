@@ -1,15 +1,15 @@
 new Vue ({
-	el: '#main-container',
-	data: {
-		dolarToday: 'https://s3.amazonaws.com/dolartoday/data.json',
-		exchange: 'https://openexchangerates.org/api/latest.json?app_id=ae86587758744760bca3f3f4107b2369&show_alternative=1&symbols=COP,EUR,VEF_BLKMKT,PEN,CLP',
-		crypto: 'https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,DAI,LTC&tsyms=USD,EUR,COP,VES,CLP,PEN&api_key={4a8910b13d689849c08919735481e44ff67190790f102938ee30e1a95169ae70}',
-		input: '',
-		selected: '',
-		number: 0,
-		ves_usd: null,
-		ves_eur: null,
-		era_cop: null,
+  el: '#main-container',
+  data: {
+    dolarToday: 'https://s3.amazonaws.com/dolartoday/data.json',
+    exchange: 'https://openexchangerates.org/api/latest.json?app_id=ae86587758744760bca3f3f4107b2369&show_alternative=1&symbols=COP,EUR,VEF_BLKMKT,PEN,CLP',
+    crypto: 'https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,DAI,LTC&tsyms=USD,EUR,COP,VES,CLP,PEN&api_key={4a8910b13d689849c08919735481e44ff67190790f102938ee30e1a95169ae70}',
+    input: '',
+    selected: '',
+    number: 0,
+    ves_usd: null,
+    ves_eur: null,
+    era_cop: null,
     era_eur: null,
     era_pen: null,
     era_clp: null,
@@ -20,79 +20,79 @@ new Vue ({
     eut_eth: null,
     eur_ltc: null,
     isActive: false,
-		loading: true,
-		error: false
-	},
-	watch: {
-		selected() {
-			if(this.selected == 'Bolívar') {
-				this.number = 100000.00
+    loading: true,
+    error: false
+  },
+  watch: {
+    selected() {
+      if(this.selected == 'Bolívar') {
+      this.number = 100000.00
       }
       else if(this.selected == 'Dólar') {
-				this.number = 10.00
-			}
-			else if(this.selected == 'Peso') {
-				this.number = 10000.00
+      this.number = 10.00
+      }
+      else if(this.selected == 'Peso') {
+      this.number = 10000.00
       }
       else if(this.selected == 'Peso Chileno') {
-				this.number = 100.00
+      this.number = 100.00
       }
       else if(this.selected == 'Sol') {
-				this.number = 1.00
-			}
-			else if(this.selected == 'Bitcoin') {
-				this.number = 0.001
+      this.number = 1.00
+      }
+      else if(this.selected == 'Bitcoin') {
+      this.number = 0.001
       }
       else if(this.selected == 'Ether') {
-				this.number = 0.10
+      this.number = 0.10
       }
       else if(this.selected == 'Litecoin') {
-				this.number = 0.10
-			}
-		}
-	},
-	methods: {
-		coinFormat([lang, currency, digits, value]) {
-			if (isNaN(value)) {
-				switch (currency) {
-					case 'VES':
-						return 'Bs.S 0,00';
-						break;
-					case 'COP':
-						return '$ 0,00';
-						break;
-					case 'USD':
-						return '$0.00';
-						break;
-          case 'PEN':
-            return 'S/ 0.00';
-            break;
-          case 'CLP':
-            return '$ 0.00';
-            break;
-					case 'BTC':
-						return 'BTC 0.00000000';
-            break;
-          case 'LTC':
-            return 'LTC 0.00000000';
-            break;
-          case 'ETH':
-						return 'ETH 0.00000000';
-            break;
-					}
-			}
-			else {
-				return Intl.NumberFormat(lang, {style: 'currency', currency: currency, minimumFractionDigits: digits}).format(value);
-			}
-		},
-		showNotes() {
+      this.number = 0.10
+      }
+    }
+  },
+  methods: {
+    coinFormat([lang, currency, digits, value]) {
+    if (isNaN(value)) {
+      switch (currency) {
+        case 'VES':
+          return 'Bs.S 0,00';
+          break;
+        case 'COP':
+          return '$ 0,00';
+          break;
+        case 'USD':
+          return '$0.00';
+          break;
+        case 'PEN':
+          return 'S/ 0.00';
+          break;
+        case 'CLP':
+          return '$ 0.00';
+          break;
+        case 'BTC':
+          return 'BTC 0.00000000';
+          break;
+        case 'LTC':
+          return 'LTC 0.00000000';
+          break;
+        case 'ETH':
+          return 'ETH 0.00000000';
+          break;
+      }
+    }
+    else {
+    return Intl.NumberFormat(lang, {style: 'currency', currency: currency, minimumFractionDigits: digits}).format(value);
+    }
+    },
+    showNotes() {
       this.isActive = true
-			setTimeout(() => {
-				this.isActive = false
-			}, 5000);
-		}
-	},
-	computed: {
+      setTimeout(() => {
+        this.isActive = false
+      }, 5000);
+    }
+  },
+  computed: {
     coins() {
       return {
         'vesToUsd': ['es-VE', 'VES', 2, this.ves_usd],
@@ -204,29 +204,28 @@ new Vue ({
         select: this.selected
       }
     }
-	},
-	mounted() {
-		axios
-			.all([axios.get(this.dolarToday), axios.get(this.exchange), axios.get(this.crypto)])
-			.then(axios.spread((dolarTodayGet, exchangeGet, cryptoGet) => {
-					this.ves_usd = dolarTodayGet.data.USD.promedio
-					this.ves_eur = dolarTodayGet.data.EUR.promedio
-					this.era_cop = exchangeGet.data.rates.COP
-          this.era_eur = exchangeGet.data.rates.EUR
-          this.era_pen = exchangeGet.data.rates.PEN
-          this.era_clp = exchangeGet.data.rates.CLP
-					this.usd_btc = cryptoGet.data.BTC.USD
-          this.eur_btc = cryptoGet.data.BTC.EUR
-          this.eur_eth = cryptoGet.data.ETH.EUR
-          this.eur_ltc = cryptoGet.data.LTC.EUR
-          this.usd_ltc = cryptoGet.data.LTC.USD
-          this.usd_eth = cryptoGet.data.ETH.USD
-				}
-			))
-			.catch(error => {
-				console.log(error)
-				this.error = true
+  },
+  mounted() {
+    axios
+      .all([axios.get(this.dolarToday), axios.get(this.exchange), axios.get(this.crypto)])
+      .then(axios.spread((dolarTodayGet, exchangeGet, cryptoGet) => {
+        this.ves_usd = dolarTodayGet.data.USD.promedio
+        this.ves_eur = dolarTodayGet.data.EUR.promedio
+        this.era_cop = exchangeGet.data.rates.COP
+        this.era_eur = exchangeGet.data.rates.EUR
+        this.era_pen = exchangeGet.data.rates.PEN
+        this.era_clp = exchangeGet.data.rates.CLP
+        this.usd_btc = cryptoGet.data.BTC.USD
+        this.eur_btc = cryptoGet.data.BTC.EUR
+        this.eur_eth = cryptoGet.data.ETH.EUR
+        this.eur_ltc = cryptoGet.data.LTC.EUR
+        this.usd_ltc = cryptoGet.data.LTC.USD
+        this.usd_eth = cryptoGet.data.ETH.USD
+      }))
+      .catch(error => {
+        console.log(error)
+        this.error = true
       })
       .finally(() => this.loading = false)
-	}
+  }
 })
