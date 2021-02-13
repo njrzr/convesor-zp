@@ -21,7 +21,8 @@ new Vue ({
     eur_ltc: null,
     isActive: false,
     loading: true,
-    error: false
+    error: false,
+    date: new Date().getFullYear()
   },
   watch: {
     selected() {
