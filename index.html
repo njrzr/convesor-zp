@@ -1,149 +1,27 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
-  <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width"/>
-    <meta name="Description" content="Conversor ZERO + PLUS, webapp de conversión de divisas y critpomonedas">
-    <title>Conversor | ZERO+PLUS</title>
-    <link rel="stylesheet" type="text/css" href="css/conversor.css"/>
-    <link rel="icon" type="image/png" href="images/favicon.png"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;700&display=swap" rel="stylesheet">
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="./src/assets/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conversor | ZERO+PLUS</title>
+  <link rel="stylesheet" href="./src/tailwind.css">
+</head>
 
-  <body>
-    <div id="main-container" v-cloak>
-      <div id="grid-warn" v-if="error">
-        <p>No fue posible obtener el valor de las monedas, revise su conexión a internet o inténtalo mas tarde.</p>
-      </div>
-
-      <div id="grid-load" v-else-if="loading">
-        <p>CARGANDO<span id="blnk1">.</span><span id="blnk2">.</span><span id="blnk3">.</span></p>
-      </div>
-
-      <div id="container-data" v-else>
-        <div class="grid coin-1">
-          <p id="title">Conversor de divisas y criptomonedas.<span :class="['super', { 'hide': isActive }]" @click="showNotes"></span></p>
-          <div :class="['notes', { 'show-notes': isActive }]">
-            <p>El valor de las divisas es obtenido a través de <a class="api" target="_blank" href="https://dolartoday.com/" rel="noreferrer">dolartoday.com</a> y <a class="api" target="_blank" href="https://openexchangerates.org/" rel="noreferrer">openexchangerates.org</a>.</p>
-            <p>El valor de las criptomonedas es obtenido a través de <a class="api" target="_blank" href="https://cryptocompare.com/" rel="noreferrer">cryptocompare.com</a>.</p>
-          </div>
-        </div>
-        <div class="grid coin-2">
-          <p class="coin-name">Bolívares por Dólar</p>
-          <p class="coin-value">{{ coinFormat(coins.vesToUsd) }}</p>
-        </div>
-        <div class="grid coin-3">
-          <p class="coin-name">Bolívares por Euro</p>
-          <p class="coin-value">{{ coinFormat(coins.vesToEur) }}</p>
-        </div>
-        <div class="grid coin-4">
-          <p class="coin-name">Dólares por Bitcoin</p>
-          <p class="coin-value">{{ coinFormat(coins.usdToBtc) }}</p>
-        </div>
-        <div class="grid coin-5">
-          <p class="coin-name">Pesos por Dólar</p>
-          <p class="coin-value">{{ coinFormat(coins.copToUsd) }}</p>
-        </div>
-        <div class="grid coin-6">
-          <p class="coin-name">Bolívares por Peso</p>
-          <p class="coin-value">{{ coinFormat(coins.vesToCop) }}</p>
-        </div>
-        <div class="grid coin-7">
-          <p class="coin-name">Bolívares por Sol</p>
-          <p class="coin-value">{{ coinFormat(coins.vesToPen) }}</p>
-        </div>
-        <div class="grid coin-8">
-          <p class="coin-name">Dolares por Ether</p>
-          <p class="coin-value">{{ coinFormat(coins.usdToEth) }}</p>
-        </div>
-        <div class="grid coin-9">
-          <p class="coin-name">Pesos por Bolivar</p>
-          <p class="coin-value">{{ coinFormat(coins.copToVes) }}</p>
-        </div>
-        <div class="grid coin-10">
-          <p class="coin-name">Bolívares por Peso Chileno</p>
-          <p class="coin-value">{{ coinFormat(coins.vesToClp) }}</p>
-        </div>
-        <div class="grid coin-11">
-          <p class="coin-name">Dolares por Litecoin</p>
-          <p class="coin-value">{{ coinFormat(coins.usdToLtc) }}</p>
-        </div>
-        <div class="grid select">
-          <select id="coin" v-model="selected">
-            <option selected disabled value="">Elige moneda</option>
-            <option>Bolívar</option>
-            <option>Dólar</option>
-            <option>Peso</option>
-            <option>Peso Chileno</option>
-            <option>Sol</option>
-            <option>Bitcoin</option>
-            <option>Ether</option>
-            <option>Litecoin</option>
-          </select>
-          <input id="value" type="number" inputmode="numeric" pattern="[0-9]*" :step="number" placeholder="Ingrese monto a calcular" title="Solo ingresar números" autocomplete="off" required v-model="input"/>
-        </div>
-
-        <div class="grid-select" v-if="selected != ''">
-          <div class="grid coin-select-1">
-            <p class="input">{{ coinFormat(coinSelect[selectCoin.select][0]) }} equivalen a</p>
-          </div>
-          <div class="grid coin-select-2">
-            <p class="coin-name">{{ coinSelect[selectCoin.select][1][0] }}</p>
-            <p class="coin-value">{{ coinFormat(coinSelect[selectCoin.select][1][1]) }}</p>
-          </div>
-          <div class="grid coin-select-3">
-            <p class="coin-name">{{ coinSelect[selectCoin.select][2][0] }}</p>
-            <p class="coin-value">{{ coinFormat(coinSelect[selectCoin.select][2][1]) }}</p>
-          </div>
-          <div class="grid coin-select-4">
-            <p class="coin-name">{{ coinSelect[selectCoin.select][3][0] }}</p>
-            <p class="coin-value">{{ coinFormat(coinSelect[selectCoin.select][3][1]) }}</p>
-          </div>
-          <div class="grid coin-select-5">
-            <p class="coin-name">{{ coinSelect[selectCoin.select][4][0] }}</p>
-            <p class="coin-value">{{ coinFormat(coinSelect[selectCoin.select][4][1]) }}</p>
-          </div>
-          <div class="grid coin-select-6">
-            <p class="coin-name">{{ coinSelect[selectCoin.select][5][0] }}</p>
-            <p class="coin-value">{{ coinFormat(coinSelect[selectCoin.select][5][1]) }}</p>
-          </div>
-          <div class="grid coin-select-7">
-            <p class="coin-name">{{ coinSelect[selectCoin.select][6][0] }}</p>
-            <p class="coin-value">{{ coinFormat(coinSelect[selectCoin.select][6][1]) }}</p>
-          </div>
-          <div class="grid coin-select-8">
-            <p class="coin-name">{{ coinSelect[selectCoin.select][7][0] }}</p>
-            <p class="coin-value">{{ coinFormat(coinSelect[selectCoin.select][7][1]) }}</p>
-          </div>
-          <div class="grid coin-select-9">
-            <p class="coin-name">{{ coinSelect[selectCoin.select][8][0] }}</p>
-            <p class="coin-value">{{ coinFormat(coinSelect[selectCoin.select][8][1]) }}</p>
-          </div>
-        </div>
-      </div>
-
-      <div id="footer">
-        <p class="foot">WebApp creada por:</p>
-        <a id="creator-link" href="https://njrzr.github.io/zero-plus/" target="_blank" rel="noreferrer"><img id="logos" src="images/logo.png" title="ZERO+PLUS" alt="Logo de creador"/></a>
-        <p class="foot">&copy; ZERO+PLUS 2019 - {{ date }}</p>
-      </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios@0.21.0/dist/axios.min.js"></script>
-    <script src="javascript/vue-script.js"></script>
-  </body>
-
-</html>
+<body>
+  <div id="app"></div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
 
 <!--
         |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
         |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-        ||||||||||CONVERSOR DE DIVISAS Y CRIPTOMONEDAS                       ||||||||||
-        ||||||||||WEBAPP CREADA POR ANGEL ORLANDO PERNIA RONDON              ||||||||||
-        ||||||||||COPYRIGHT 2019 - 2021 ZERO+PLUS   njrzr.github.io/zero-plus||||||||||
+        ||||||||||CONVERSOR DE DIVISAS Y CRIPTOS                             ||||||||||
+        ||||||||||APP CREADA POR ANGEL ORLANDO PERNIA RONDON                 ||||||||||
+        ||||||||||COPYRIGHT 2019 - 2022 ZERO+PLUS @ njrzr.github.io          ||||||||||
         |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
         |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 -->
+
+</html>
