@@ -144,7 +144,7 @@ function coinFormat([lang, currency, digits, value]: [string, string, number, nu
       <a class="group flex items-center justify-center w-full" href="https://njrzr.github.io" target="_blank"
         rel="noreferrer"><img
           class="bg-white w-16 h-16 md:group-hover:bg-gray-300 md:group-hover:bg-opacity-80 md:transition md:duration-300 rounded-lg"
-          src="./assets/logo.svg" title="ZERO+PLUS" alt="Logo de creador" /></a>
+          src="./assets/logo.webp" title="ZERO+PLUS" alt="Logo de creador" /></a>
       <p class="text-center md:text-left text-white md:text-xl">&copy; ZERO+PLUS 2019 - {{ date }}</p>
     </div>
   </main>
