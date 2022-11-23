@@ -119,7 +119,7 @@ function coinFormat([lang, currency, digits, value]: [string, string, number, nu
     <p class="text-center font-semibold text-2xl md:text-4xl uppercase text-gradient">CARGANDO</p>
   </div>
 
-  <main v-else class="relative grid mx-auto mt-1 w-11/12 md:w-10/12 font-poppins select-none">
+  <main v-else class="relative grid mx-auto my-1 w-11/12 md:w-10/12 font-poppins select-none">
     <div class="relative flex items-center justify-center gap-2 bg-royal rounded-lg w-full h-20 md:overflow-hidden">
       <p class="text-center text-white font-semibold text-xl md:text-4xl uppercase">Conversor de divisas y criptos</p>
       <span
