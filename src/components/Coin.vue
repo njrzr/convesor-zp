@@ -39,11 +39,13 @@ const format: Format = {
 </script>
 
 <template>
-  <div class="relative grid grid-cols-4 gap-1 w-full mx-auto mt-1">
+  <div class="relative grid grid-cols-2 md:grid-cols-4 gap-1 w-full mx-auto mt-1">
     <div v-for="coin, index in coins" key="index" class="bg-royal rounded-lg py-1 px-2">
-      <p class="text-white font-semibold">{{ format[index] }}</p>
-      <p class="text-white text-right text-xl selection:bg-white selection:text-royal select-text">{{ coinFormat(coin)
-      }}</p>
+      <p class="text-white text-sm md:text-base font-semibold">{{ format[index] }}</p>
+      <p class="text-white text-right md:text-xl selection:bg-white selection:text-royal select-text">{{
+          coinFormat(coin)
+      }}
+      </p>
     </div>
   </div>
 </template>

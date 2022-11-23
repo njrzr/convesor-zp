@@ -136,7 +136,8 @@ function clearInput(el: any) {
 
 <template>
   <div class="relative flex justify-around items-center gap-2 mt-1 p-2 bg-royal rounded-lg">
-    <select class="appearance-none w-1/4 text-2xl p-1 bg-arrow bg-no-repeat bg-contain bg-right" v-model="selected">
+    <select class="appearance-none w-1/2 md:w-1/4 text-sm md:text-2xl p-1 bg-arrow bg-no-repeat bg-contain bg-right"
+      v-model="selected">
       <option disabled value="">Elige moneda</option>
       <option>Bolívar</option>
       <option>Dólar</option>
@@ -147,22 +148,24 @@ function clearInput(el: any) {
       <option>Ether</option>
       <option>Litecoin</option>
     </select>
-    <input class="w-3/4 text-2xl text-center p-1" type="number" inputmode="numeric" pattern="[0-9]*" :step="number"
-      placeholder="Ingrese monto a calcular" @focus="clearInput" title="Solo ingresar números" autocomplete="off"
-      required v-model="input" />
+    <input class="w-1/2 md:w-3/4 text-sm md:text-2xl text-center p-1" type="number" inputmode="numeric" pattern="[0-9]*"
+      :step="number" placeholder="Ingrese monto a calcular" @focus="clearInput" title="Solo ingresar números"
+      autocomplete="off" required v-model="input" />
   </div>
 
-  <div class="relative grid grid-cols-4 gap-1 w-full mx-auto mt-1" v-if="selected != ''">
-    <div class="col-span-4 bg-royal rounded-lg p-1">
-      <p class="p-1 text-white text-center text-3xl font-semibold">{{ coinFormat(currencySelect[selected][0]) }}
+  <div class="relative grid grid-cols-2 md:grid-cols-4 gap-1 w-full mx-auto mt-1" v-if="selected != ''">
+    <div class="col-span-2 md:col-span-4 bg-royal rounded-lg p-1">
+      <p class="p-1 text-white text-center text-xl md:text-3xl font-semibold">{{ coinFormat(currencySelect[selected][0])
+      }}
         equivalen a
       </p>
     </div>
-    <div class="bg-royal rounded-lg py-1 px-2" v-for="coin of coinSelect[selected]">
+    <div class="bg-royal rounded-lg py-1 px-2 text-sm md:text-base" v-for="coin of coinSelect[selected]">
       <p class="text-white font-semibold">{{ coin[0] }}</p>
-      <p class="text-white text-right text-xl selection:bg-white selection:text-royal select-text">{{
-          coinFormat([coin[1], coin[2], coin[3], coin[4]])
-      }}</p>
+      <p class="text-white text-right md:text-xl selection:bg-white selection:text-royal select-text">{{
+      coinFormat([coin[1], coin[2], coin[3], coin[4]])
+      }}
+      </p>
     </div>
   </div>
 </template>

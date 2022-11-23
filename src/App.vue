@@ -109,29 +109,29 @@ function coinFormat([lang, currency, digits, value]: [string, string, number, nu
 
 <template>
   <div v-if="isError"
-    class="relative mx-auto mt-1 w-10/12 h-20 font-poppins flex items-center justify-center bg-royal rounded-lg px-4 py-2">
-    <p class="text-center text-white font-semibold text-xl">No fue posible obtener el valor de las monedas,
+    class="relative mx-auto mt-1 w-11/12 md:w-10/12 h-20 font-poppins flex items-center justify-center bg-royal rounded-lg px-4 py-2">
+    <p class="text-center text-white font-semibold md:text-xl">No fue posible obtener el valor de las monedas,
       revise su conexión a internet o inténtalo mas tarde.</p>
   </div>
 
   <div v-else-if="isLoading"
-    class="relative mx-auto mt-1 w-10/12 h-20 font-poppins flex items-center justify-center bg-royal rounded-lg px-4 py-2">
-    <p class="text-center font-semibold text-4xl uppercase text-gradient">CARGANDO</p>
+    class="relative mx-auto mt-1 w-11/12 md:w-10/12 h-20 font-poppins flex items-center justify-center bg-royal rounded-lg px-4 py-2">
+    <p class="text-center font-semibold text-2xl md:text-4xl uppercase text-gradient">CARGANDO</p>
   </div>
 
-  <main v-else class="relative grid mx-auto mt-1 w-10/12 font-poppins select-none">
-    <div class="relative flex items-center justify-center gap-2 bg-royal rounded-lg w-full h-20 overflow-hidden">
-      <p class="text-center text-white font-semibold text-4xl uppercase">Conversor de divisas y criptos</p>
+  <main v-else class="relative grid mx-auto mt-1 w-11/12 md:w-10/12 font-poppins select-none">
+    <div class="relative flex items-center justify-center gap-2 bg-royal rounded-lg w-full h-20 md:overflow-hidden">
+      <p class="text-center text-white font-semibold text-xl md:text-4xl uppercase">Conversor de divisas y criptos</p>
       <span
-        :class="[{ 'invisible': isActive != false }, 'bg-white', 'text-royal', 'font-semibold', 'rounded-full', 'text-2xl', 'px-3.5', 'py-1', 'hover:bg-gray-200', 'cursor-pointer', 'transition', 'duration-200']"
+        :class="[{ 'invisible': isActive != false }, 'bg-white', 'text-royal', 'font-semibold', 'rounded-full', 'text-2xl', 'mr-2', 'md:mr-0', 'px-3.5', 'py-1', 'hover:bg-gray-200', 'cursor-pointer', 'transition', 'duration-200']"
         @click="showNotes">?</span>
       <div
-        :class="[{ 'notes-hidden': isActive != true, 'notes-open': isActive != false }, 'absolute', 'flex', 'flex-col', 'items-center', ' justify-center', 'w-full', , 'h-full', 'overflow-hidden', 'bg-white', 'border-4', 'rounded-lg', 'border-royal']">
-        <p class="text-center text-royal font-semibold text-2xl">El valor de las divisas es proporcionado por
+        :class="[{ 'notes-hidden': isActive != true, 'notes-open': isActive != false }, 'absolute', 'flex', 'flex-col', 'items-center', ' justify-center', 'w-full', 'p-1', 'top-0', 'md:top-auto', 'md:h-full', 'overflow-hidden', 'bg-white', 'border-4', 'rounded-lg', 'border-royal']">
+        <p class="text-center text-royal font-semibold md:text-2xl">El valor de las divisas es proporcionado por
           <a class="text-gray-300 hover:text-gray-400 transition duration-200" target="_blank"
             href="https://openexchangerates.org/" rel="noreferrer">openexchangerates.org</a>.
         </p>
-        <p class="text-center text-royal font-semibold text-2xl">El valor de las criptomonedas es proporcionado por
+        <p class="text-center text-royal font-semibold md:text-2xl">El valor de las criptomonedas es proporcionado por
           <a class="text-gray-300 hover:text-gray-400 transition duration-200" target="_blank"
             href="https://cryptocompare.com/" rel="noreferrer">cryptocompare.com</a>.
         </p>
@@ -139,13 +139,13 @@ function coinFormat([lang, currency, digits, value]: [string, string, number, nu
     </div>
     <Coin :coinVal="coinValue" :coinFormat="coinFormat" />
     <CoinSelect :coinVal="coinValue" :coinFormat="coinFormat" />
-    <div
-      class="relative flex items-center justify-center gap-2 bg-royal rounded-lg px-4 py-2 w-full h-20 overflow-hidden mt-1">
-      <p class="text-white text-xl">WebApp creada por:</p>
-      <a class="bg-white m-2 w-16 h-16 rounded-lg hover:bg-gray-300 hover:bg-opacity-80 transition duration-300"
-        href="https://njrzr.github.io" target="_blank" rel="noreferrer"><img id="logos" src="./assets/logo.svg"
-          title="ZERO+PLUS" alt="Logo de creador" /></a>
-      <p class="text-white text-xl">&copy; ZERO+PLUS 2019 - {{ date }}</p>
+    <div class="relative grid grid-cols-3 gap-2 px-4 items-center bg-royal rounded-lg w-full h-20 overflow-hidden mt-1">
+      <p class="text-center md:text-right text-white md:text-xl">WebApp creada por:</p>
+      <a class="group flex items-center justify-center w-full" href="https://njrzr.github.io" target="_blank"
+        rel="noreferrer"><img
+          class="bg-white w-16 h-16 md:group-hover:bg-gray-300 md:group-hover:bg-opacity-80 md:transition md:duration-300 rounded-lg"
+          src="./assets/logo.svg" title="ZERO+PLUS" alt="Logo de creador" /></a>
+      <p class="text-center md:text-left text-white md:text-xl">&copy; ZERO+PLUS 2019 - {{ date }}</p>
     </div>
   </main>
 </template>
