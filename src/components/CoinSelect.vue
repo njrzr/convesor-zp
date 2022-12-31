@@ -48,7 +48,7 @@ const coinSelect = computed((): CoinSelect => {
   return {
     'Bolívar': [
       ['Conversión a Dólares', 'en-US', 'USD', 2, (input.value / props.coinVal["ves_usd"])],
-      ['Conversión a Euros', 'en-EU', 'EUR', 2, (input.value / (props.coinVal["ves_usd"] / props.coinVal["ves_eur"]))],
+      ['Conversión a Euros', 'en-EU', 'EUR', 2, (input.value / props.coinVal["ves_eur"])],
       ['Conversión a Pesos', 'es-CO', 'COP', 2, (input.value * (props.coinVal["era_cop"] / props.coinVal["ves_usd"]))],
       ['Conversión a Pesos Chilenos', 'es-CL', 'CLP', 2, (input.value * (props.coinVal["era_clp"] / props.coinVal["ves_usd"]))],
       ['Conversión a Soles', 'es-PE', 'PEN', 2, (input.value * (props.coinVal["era_pen"] / props.coinVal["ves_usd"]))],

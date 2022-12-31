@@ -13,6 +13,7 @@ interface CoinValue {
 }
 
 const url: URL = {
+  dolarToday: 'https://s3.amazonaws.com/dolartoday/data.json',
   exchange: 'https://openexchangerates.org/api/latest.json?app_id=ae86587758744760bca3f3f4107b2369&show_alternative=1&symbols=COP,EUR,VEF_BLKMKT,PEN,CLP',
   crypto: 'https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,LTC&tsyms=USD,EUR,COP,VES,CLP,PEN&api_key={4a8910b13d689849c08919735481e44ff67190790f102938ee30e1a95169ae70}',
 }
@@ -46,10 +47,10 @@ function showNotes() {
 
 onMounted(() => {
   axios
-    .all([axios.get(url.exchange), axios.get(url.crypto)])
-    .then(axios.spread((exchangeGet, cryptoGet) => {
-      coinValue.ves_usd = exchangeGet.data.rates.VEF_BLKMKT
-      coinValue.ves_eur = exchangeGet.data.rates.EUR
+    .all([axios.get(url.dolarToday), axios.get(url.exchange), axios.get(url.crypto)])
+    .then(axios.spread((dolarTodayGet, exchangeGet, cryptoGet) => {
+      coinValue.ves_usd = dolarTodayGet.data.USD.promedio
+      coinValue.ves_eur = dolarTodayGet.data.EUR.promedio
       coinValue.era_cop = exchangeGet.data.rates.COP
       coinValue.era_eur = exchangeGet.data.rates.EUR
       coinValue.era_pen = exchangeGet.data.rates.PEN

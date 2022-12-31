@@ -13,7 +13,7 @@ let multiply: number = 1000
 
 const coins: Coins = {
   vesToUsd: ['es-VE', 'VES', 2, props.coinVal["ves_usd"]],
-  vesToEur: ['es-VE', 'VES', 2, (props.coinVal["ves_usd"] / props.coinVal["ves_eur"])],
+  vesToEur: ['es-VE', 'VES', 2, props.coinVal["ves_eur"]],
   usdToBtc: ['en-US', 'USD', 2, props.coinVal["usd_btc"]],
   usdToEth: ['en-US', 'USD', 2, props.coinVal["usd_eth"]],
   usdToLtc: ['en-US', 'USD', 2, props.coinVal["usd_ltc"]],
