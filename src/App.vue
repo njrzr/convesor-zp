@@ -130,7 +130,9 @@ function coinFormat([lang, currency, digits, value]: [string, string, number, nu
         :class="[{ 'notes-hidden': isActive != true, 'notes-open': isActive != false }, 'absolute', 'flex', 'flex-col', 'items-center', ' justify-center', 'w-full', 'p-1', 'top-0', 'md:top-auto', 'md:h-full', 'overflow-hidden', 'bg-white', 'border-4', 'rounded-lg', 'border-royal']">
         <p class="text-center text-royal font-semibold md:text-2xl">El valor de las divisas es proporcionado por
           <a class="text-gray-300 hover:text-gray-400 transition duration-200" target="_blank"
-            href="https://openexchangerates.org/" rel="noreferrer">openexchangerates.org</a>.
+          href="https://openexchangerates.org/" rel="noreferrer">openexchangerates.org</a> y
+          <a class="text-gray-300 hover:text-gray-400 transition duration-200" target="_blank"
+          href="https://dolartoday.com/" rel="noreferrer">dolartoday.com</a>.
         </p>
         <p class="text-center text-royal font-semibold md:text-2xl">El valor de las criptomonedas es proporcionado por
           <a class="text-gray-300 hover:text-gray-400 transition duration-200" target="_blank"
