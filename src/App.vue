@@ -44,8 +44,8 @@ function showNotes() {
 
 onMounted(() => {
   axios
-    .all([axios.get(url.dolarToday), axios.get(url.exchange), axios.get(url.crypto)])
-    .then(axios.spread((dolarTodayGet, exchangeGet, cryptoGet) => {
+    .all([axios.get(url.exchange), axios.get(url.crypto)])
+    .then(axios.spread((exchangeGet, cryptoGet) => {
       coinValue.era_cop = exchangeGet.data.rates.COP
       coinValue.era_eur = exchangeGet.data.rates.EUR
       coinValue.era_pen = exchangeGet.data.rates.PEN
@@ -125,9 +125,7 @@ function coinFormat([lang, currency, digits, value]: [string, string, number, nu
         :class="[{ 'notes-hidden': isActive != true, 'notes-open': isActive != false }, 'absolute', 'flex', 'flex-col', 'items-center', ' justify-center', 'w-full', 'p-1', 'top-0', 'md:top-auto', 'md:h-full', 'overflow-hidden', 'bg-white', 'border-4', 'rounded-lg', 'border-royal']">
         <p class="text-center text-royal font-semibold md:text-2xl">El valor de las divisas es proporcionado por
           <a class="text-gray-300 hover:text-gray-400 transition duration-200" target="_blank"
-          href="https://openexchangerates.org/" rel="noreferrer">openexchangerates.org</a> y
-          <a class="text-gray-300 hover:text-gray-400 transition duration-200" target="_blank"
-          href="https://dolartoday.com/" rel="noreferrer">dolartoday.com</a>.
+          href="https://openexchangerates.org/" rel="noreferrer">openexchangerates.org</a>
         </p>
         <p class="text-center text-royal font-semibold md:text-2xl">El valor de las criptomonedas es proporcionado por
           <a class="text-gray-300 hover:text-gray-400 transition duration-200" target="_blank"
@@ -135,8 +133,10 @@ function coinFormat([lang, currency, digits, value]: [string, string, number, nu
         </p>
       </div>
     </div>
+
     <Coin :coinVal="coinValue" :coinFormat="coinFormat" />
     <CoinSelect :coinVal="coinValue" :coinFormat="coinFormat" />
+    
     <div class="relative grid grid-cols-3 gap-2 px-4 items-center bg-royal rounded-lg w-full h-20 overflow-hidden mt-1">
       <p class="text-center md:text-right text-white md:text-xl">WebApp creada por:</p>
       <a class="group flex items-center justify-center w-full" href="https://njrzr.github.io" target="_blank"

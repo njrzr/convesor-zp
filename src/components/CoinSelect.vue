@@ -122,7 +122,6 @@ function clearInput(el: any) {
     <select class="appearance-none w-1/2 md:w-1/4 text-sm md:text-2xl p-1 bg-arrow bg-no-repeat bg-contain bg-right"
       v-model="selected">
       <option disabled value="">Elige moneda</option>
-      <option>Bolívar</option>
       <option>Dólar</option>
       <option>Peso</option>
       <option>Peso Chileno</option>
