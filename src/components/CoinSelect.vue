@@ -46,18 +46,7 @@ const currencySelect = computed((): CurrencySelect => {
 
 const coinSelect = computed((): CoinSelect => {
   return {
-    'Bolívar': [
-      ['Conversión a Dólares', 'en-US', 'USD', 2, (input.value / props.coinVal["ves_usd"])],
-      ['Conversión a Euros', 'en-EU', 'EUR', 2, (input.value / props.coinVal["ves_eur"])],
-      ['Conversión a Pesos', 'es-CO', 'COP', 2, (input.value * (props.coinVal["era_cop"] / props.coinVal["ves_usd"]))],
-      ['Conversión a Pesos Chilenos', 'es-CL', 'CLP', 2, (input.value * (props.coinVal["era_clp"] / props.coinVal["ves_usd"]))],
-      ['Conversión a Soles', 'es-PE', 'PEN', 2, (input.value * (props.coinVal["era_pen"] / props.coinVal["ves_usd"]))],
-      ['Conversión a Bitcoin', 'en-US', 'BTC', 8, (input.value / (props.coinVal["ves_usd"] * props.coinVal["usd_btc"]))],
-      ['Conversión a Ether', 'en-US', 'ETH', 8, (input.value / (props.coinVal["ves_usd"] * props.coinVal["usd_eth"]))],
-      ['Conversión a Litecoin', 'en-US', 'LTC', 8, (input.value / (props.coinVal["ves_usd"] * props.coinVal["usd_ltc"]))],
-    ],
     'Dólar': [
-      ['Conversión a Bolívares', 'es-VE', 'VES', 2, (input.value * props.coinVal["ves_usd"])],
       ['Conversión a Euros', 'en-EU', 'EUR', 2, (input.value * props.coinVal["era_eur"])],
       ['Conversión a Pesos', 'es-CO', 'COP', 2, (input.value * props.coinVal["era_cop"])],
       ['Conversión a Pesos Chilenos', 'es-CL', 'CLP', 2, (input.value * props.coinVal["era_clp"])],
@@ -67,7 +56,6 @@ const coinSelect = computed((): CoinSelect => {
       ['Conversión a Litecoin', 'en-US', 'LTC', 8, (input.value / props.coinVal["usd_ltc"])]
     ],
     'Peso': [
-      ['Conversión a Bolívares', 'es-VE', 'VES', 2, (input.value * (props.coinVal["ves_usd"] / props.coinVal["era_cop"]))],
       ['Conversión a Dólares', 'en-US', 'USD', 2, (input.value / props.coinVal["era_cop"])],
       ['Conversión a Euros', 'en-EU', 'EUR', 2, (input.value / (props.coinVal["era_cop"] / props.coinVal["era_eur"]))],
       ['Conversión a Pesos Chilenos', 'es-CL', 'CLP', 2, (input.value / (props.coinVal["era_cop"] / props.coinVal["era_clp"]))],
@@ -77,7 +65,6 @@ const coinSelect = computed((): CoinSelect => {
       ['Conversión a Litecoin', 'en-US', 'LTC', 8, (input.value / (props.coinVal["era_cop"] * props.coinVal["usd_ltc"]))]
     ],
     'Peso Chileno': [
-      ['Conversión a Bolívares', 'es-VE', 'VES', 2, (input.value * (props.coinVal["ves_usd"] / props.coinVal["era_clp"]))],
       ['Conversión a Dólares', 'en-US', 'USD', 2, (input.value / props.coinVal["era_clp"])],
       ['Conversión a Euros', 'en-EU', 'EUR', 2, (input.value / (props.coinVal["era_clp"] / props.coinVal["era_eur"]))],
       ['Conversión a Pesos', 'es-CO', 'COP', 2, (input.value / (props.coinVal["era_clp"] / props.coinVal["era_cop"]))],
@@ -87,7 +74,6 @@ const coinSelect = computed((): CoinSelect => {
       ['Conversión a Litecoin', 'en-US', 'LTC', 8, (input.value / (props.coinVal["era_clp"] * props.coinVal["usd_ltc"]))]
     ],
     'Sol': [
-      ['Conversión a Bolívares', 'es-VE', 'VES', 2, (input.value * (props.coinVal["ves_usd"] / props.coinVal["era_pen"]))],
       ['Conversión a Dólares', 'en-US', 'USD', 2, (input.value / props.coinVal["era_pen"])],
       ['Conversión a Euros', 'en-EU', 'EUR', 2, (input.value / (props.coinVal["era_pen"] / props.coinVal["era_eur"]))],
       ['Conversión a Pesos', 'es-CO', 'COP', 2, (input.value / (props.coinVal["era_pen"] / props.coinVal["era_cop"]))],
@@ -97,7 +83,6 @@ const coinSelect = computed((): CoinSelect => {
       ['Conversión a Litecoin', 'en-US', 'LTC', 8, (input.value / (props.coinVal["era_pen"] * props.coinVal["usd_ltc"]))]
     ],
     'Bitcoin': [
-      ['Conversión a Bolívares', 'es-VE', 'VES', 2, (input.value * (props.coinVal["ves_usd"] * props.coinVal["usd_btc"]))],
       ['Conversión a Dólares', 'en-US', 'USD', 2, (input.value * props.coinVal["usd_btc"])],
       ['Conversión a Euros', 'en-EU', 'EUR', 2, (input.value * props.coinVal["eur_btc"])],
       ['Conversión a Pesos', 'es-CO', 'COP', 2, (input.value * (props.coinVal["era_cop"] * props.coinVal["usd_btc"]))],
@@ -107,7 +92,6 @@ const coinSelect = computed((): CoinSelect => {
       ['Conversión a Litecoin', 'en-US', 'LTC', 8, (input.value * (props.coinVal["usd_btc"] / props.coinVal["usd_ltc"]))]
     ],
     'Ether': [
-      ['Conversión a Bolívares', 'es-VE', 'VES', 2, (input.value * (props.coinVal["ves_usd"] * props.coinVal["usd_eth"]))],
       ['Conversión a Dólares', 'en-US', 'USD', 2, (input.value * props.coinVal["usd_eth"])],
       ['Conversión a Euros', 'en-EU', 'EUR', 2, (input.value * props.coinVal["eur_eth"])],
       ['Conversión a Pesos', 'es-CO', 'COP', 2, (input.value * (props.coinVal["era_cop"] * props.coinVal["usd_eth"]))],
@@ -117,7 +101,6 @@ const coinSelect = computed((): CoinSelect => {
       ['Conversión a Litecoin', 'en-US', 'LTC', 8, (input.value * (props.coinVal["usd_eth"] / props.coinVal["usd_ltc"]))]
     ],
     'Litecoin': [
-      ['Conversión a Bolívares', 'es-VE', 'VES', 2, (input.value * (props.coinVal["ves_usd"] * props.coinVal["usd_ltc"]))],
       ['Conversión a Dólares', 'en-US', 'USD', 2, (input.value * props.coinVal["usd_ltc"])],
       ['Conversión a Euros', 'en-EU', 'EUR', 2, (input.value * props.coinVal["eur_ltc"])],
       ['Conversión a Pesos', 'es-CO', 'COP', 2, (input.value * (props.coinVal["era_cop"] * props.coinVal["usd_ltc"]))],

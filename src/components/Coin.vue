@@ -12,16 +12,10 @@ interface Format {
 let multiply: number = 1000
 
 const coins: Coins = {
-  vesToUsd: ['es-VE', 'VES', 2, props.coinVal["ves_usd"]],
-  vesToEur: ['es-VE', 'VES', 2, props.coinVal["ves_eur"]],
   usdToBtc: ['en-US', 'USD', 2, props.coinVal["usd_btc"]],
   usdToEth: ['en-US', 'USD', 2, props.coinVal["usd_eth"]],
   usdToLtc: ['en-US', 'USD', 2, props.coinVal["usd_ltc"]],
-  copToUsd: ['es-CO', 'COP', 2, props.coinVal["era_cop"]],
-  vesToCop: ['es-VE', 'VES', 2, (props.coinVal["ves_usd"] / props.coinVal["era_cop"]) * multiply],
-  vesToPen: ['es-VE', 'VES', 2, (props.coinVal["ves_usd"] / props.coinVal["era_pen"])],
-  copToVes: ['es-CO', 'COP', 2, (props.coinVal["era_cop"] / props.coinVal["ves_usd"])],
-  vesToClp: ['es-VE', 'VES', 2, (props.coinVal["ves_usd"] / props.coinVal["era_clp"]) * multiply]
+  copToUsd: ['es-CO', 'COP', 2, props.coinVal["era_cop"]]
 }
 
 const format: Format = {
